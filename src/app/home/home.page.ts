@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +7,16 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  @ViewChild('inputPost', { static: false }) myInput: ElementRef;
 
+  constructor() { }
+
+  ngOnInit() {
+
+  }
+
+  resize() {
+    this.myInput.nativeElement.style.height = "50px";
+    this.myInput.nativeElement.style.height = this.myInput.nativeElement.scrollHeight + 'px';
+  }
 }

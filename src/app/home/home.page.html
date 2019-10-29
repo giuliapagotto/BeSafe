@@ -1,14 +1,71 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content id="home">
+    <div id="header">
+        <img src="../../assets/img/besafeNamelogo.png" alt="">
+    </div>
+    <div id="conteudo">
+        <div id="post">
+            <ion-icon name="person"></ion-icon>
+            <textarea #inputPost id="inputPost" rows="2" (keyup)="resize()" name="sPost" placeholder="O que está acontecendo?"></textarea>
+        </div>
+        <div id="feed-title">
+            <div id="feed-icon">
+                <ion-icon name="paper"></ion-icon>
+                <h3>Feed</h3>
+            </div>
+            <div id="pesquisar">
+                <textarea #inputPesquisar id="inputPEsquisar" rows="1" name="sPesquisa" placeholder="Pesquisar"></textarea>
+                <ion-icon name="search"></ion-icon>
+            </div>
+        </div>
+        <div id="feed">
+            <div class="publicacao">
+                <div class="pessoa">
+                    <ion-icon name="person"></ion-icon>
+                    <p>Lucas Castro</p>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
+                </p>
+                <div class="buttons">
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+                </div>
+            </div>
+            <div class="publicacao">
+                <div class="pessoa">
+                    <ion-icon name="person"></ion-icon>
+                    <p>Lucas Castro</p>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
+                </p>
+                <div class="buttons">
+
+                </div>
+            </div>
+            <div class="publicacao">
+                <div class="pessoa">
+                    <ion-icon name="person"></ion-icon>
+                    <p>Lucas Castro</p>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
+                </p>
+                <div class="buttons">
+
+                </div>
+            </div>
+            <div class="publicacao">
+                <div class="pessoa">
+                    <ion-icon name="person"></ion-icon>
+                    <p>Lucas Castro</p>
+                </div>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
+                </p>
+                <div class="buttons">
+
+                </div>
+            </div>
+        </div>
+    </div>
 </ion-content>
