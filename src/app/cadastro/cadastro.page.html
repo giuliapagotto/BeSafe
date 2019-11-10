@@ -1,7 +1,7 @@
 <ion-content id="cadastro" fullscreen="true">
     <div id="conteudo">
         <p id="titulo">Olá, preencha os dados de cadastro</p>
-        <ion-slides id="slides" mode="ios">
+        <ion-slides id="slides" mode="ios" [options]="slidesOptions">
             <ion-slide>
                 <form name="formEmail" [formGroup]="formEmail">
                     <ion-item>

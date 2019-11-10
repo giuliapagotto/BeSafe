@@ -16,7 +16,10 @@ export class CadastroPage implements OnInit {
   public formEmail: FormGroup;
   public formCadastro: FormGroup;
   public formUsuario: FormGroup;
-
+  public slidesOptions: {
+    allowTouchMove: false,
+    simulateTouch: false
+  }
   public slides;
 
   constructor(private _formBuilder: FormBuilder, private _navController: NavController, private _http: HttpClient,
@@ -49,16 +52,16 @@ export class CadastroPage implements OnInit {
     postData.append("Cadastro", this.formCadastro.value),
     postData.append("Usuario", this.formUsuario.value)
 
-    console.log(this.formEmail.value);
-    console.log(this.formCadastro.value);
-    console.log(this.formEmail.value);
+    // console.log(this.formEmail.value);
+    // console.log(this.formCadastro.value);
+    // console.log(this.formEmail.value);
 
 
     this._navController.navigateRoot("login");
 
-    // this._http.get('http://localhost:3333/DashboardController/').pipe(map((response: any) => response.json())).subscribe(data => {
-    //   console.log(data);
-    // });
+    this._http.get('localhost:3333/dashboard').pipe(map((response: any) => response.json())).subscribe(data => {
+      console.log(data);
+    });
 
     this.storage.set("Cadastro", this.formCadastro.value);
     this.storage.set("Email", this.formEmail.value);
