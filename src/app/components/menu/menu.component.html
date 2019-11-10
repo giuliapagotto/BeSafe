@@ -1,10 +1,13 @@
 <ion-content id="menu">
     <div class="conteudo">
         <div id="corpo">
-            <div id="header">
-                <div id="logo">
-
-                </div>
+            <div class="icon">
+                <ion-icon name="settings"></ion-icon>
+                <p>Configurações</p>
+            </div>
+            <div class="icon" style="margin-bottom: 5px;" (click)="logOut()">
+                <ion-icon name="log-out"></ion-icon>
+                <p>Sair</p>
             </div>
         </div>
         <div id="botao" (click)="open()">

@@ -1,6 +1,9 @@
 #home {
     overflow: auto;
     --background: #f8f8ff;
+    button {
+        outline: none;
+    }
     #header {
         height: 15vh;
         background: transparent;
@@ -10,9 +13,55 @@
         text-align: center;
         img {
             background: transparent;
-            position: fixed;
-            left: 3vw;
             z-index: 100;
+            position: fixed;
+            left: 0;
+        }
+    }
+    #mensagemDenuncia {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 200px;
+        background: whitesmoke;
+        position: fixed;
+        z-index: 100000;
+        border-radius: 10px;
+        left: 10%;
+        top: 30%;
+        font-size: 20px;
+        text-align: center;
+        p {
+            width: 80%;
+        }
+        #escolha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 55%;
+            justify-content: space-between;
+        }
+    }
+    #opcoes {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        height: 200px;
+        background: whitesmoke;
+        position: fixed;
+        z-index: 100000;
+        border-radius: 10px;
+        left: 10%;
+        top: 30%;
+        font-size: 20px;
+        text-align: center;
+        hr {
+            width: 70%;
+            border-width: 1px;
         }
     }
     #conteudo {
@@ -22,14 +71,15 @@
         justify-content: center;
         overflow: auto;
         margin-bottom: 15vh;
-        #post {
+        color: darkslategray;
+        #publicar {
             margin-top: 10px;
             height: auto;
             width: 80%;
             box-shadow: 2px 2px 2px 2px gray;
             border-radius: 15px;
             background: #fff;
-            ion-icon {
+            #person {
                 height: 40px;
                 width: 40px;
                 border-radius: 50%;
@@ -45,6 +95,48 @@
                 outline: none;
                 margin-left: 10px;
                 width: 70%;
+            }
+            ion-icon {
+                height: 20px;
+                width: 20px;
+                color: gray;
+                margin-left: 90%;
+                &:hover {
+                    color: green;
+                }
+            }
+        }
+        #comentar {
+            margin-top: 10px;
+            height: auto;
+            width: 83%;
+            box-shadow: 2px 2px 2px 2px gray;
+            border-radius: 15px;
+            background: #fff;
+            #usuario {
+                height: 25px;
+                width: 25px;
+                border-radius: 50%;
+                border: 2px solid;
+                border-color: gray;
+                object-fit: cover;
+                color: gray;
+                margin: 10px;
+            }
+            textarea {
+                border: none;
+                height: 42px;
+                outline: none;
+                margin-left: 10px;
+                width: 70%;
+            }
+            ion-icon {
+                height: 20px;
+                width: 20px;
+                color: gray;
+                &:hover {
+                    color: green;
+                }
             }
         }
         #feed-title {
@@ -126,6 +218,64 @@
                 .buttons {
                     display: flex;
                     flex-direction: row;
+                    width: 100%;
+                    height: 25px;
+                    display: flex;
+                    justify-content: flex-end;
+                    align-items: center;
+                    opacity: 0.75;
+                    .comentario {
+                        height: 20px;
+                        width: 20px;
+                        align-items: center;
+                        justify-content: center;
+                        background: #fff;
+                        padding: 0;
+                        display: flex;
+                        margin-right: 15px;
+                        ion-icon {
+                            height: 20px;
+                            width: 20px;
+                        }
+                    }
+                    .denuncia {
+                        height: 20px;
+                        width: 20px;
+                        align-items: center;
+                        justify-content: center;
+                        background: #fff;
+                        padding: 0;
+                        display: flex;
+                        margin-right: 15px;
+                        ion-icon {
+                            height: 20px;
+                            width: 20px;
+                            &:hover {
+                                color: red;
+                            }
+                        }
+                    }
+                }
+                #comentarios {
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    width: 100%;
+                    background: #f8f8ff;
+                    .publicacao {
+                        margin: 10px 0 10px 25px;
+                        min-height: 20vh;
+                        p {
+                            font-size: 15px;
+                        }
+                        .pessoa {
+                            ion-icon {
+                                height: 20px;
+                                width: 20px;
+                            }
+                        }
+                    }
                 }
             }
         }
