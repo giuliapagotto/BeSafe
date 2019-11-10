@@ -10,11 +10,13 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ComponentsModule } from './components/components.module';
 import { MenuComponent } from './components/menu/menu.component';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
 
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [MenuComponent],
-  imports: [BrowserModule, ComponentsModule,IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule, IonicStorageModule.forRoot(), HttpClientModule, ComponentsModule,IonicModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,
     SplashScreen,

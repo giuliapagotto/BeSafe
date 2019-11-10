@@ -5,7 +5,7 @@
             <ion-slide>
                 <form name="formEmail" [formGroup]="formEmail">
                     <ion-item>
-                        <ion-input placeholder="E-mail" type="email" name="email" formControllName="sEmail"></ion-input>
+                        <ion-input placeholder="E-mail" type="email" name="email" formControlName="sEmail"></ion-input>
                     </ion-item>
                     <button (click)="avancar()">Avançar</button>
                 </form>
@@ -13,16 +13,16 @@
             <ion-slide>
                 <form name="formCadastro" [formGroup]="formCadastro">
                     <ion-item>
-                        <ion-input placeholder="Nome" type="text" name="nome" formControllName="sNome"></ion-input>
+                        <ion-input placeholder="Nome" type="text" name="nome" formControlName="sNome"></ion-input>
                     </ion-item>
                     <ion-item>
-                        <ion-input placeholder="Celular" type="text" name="celular" formControllName="sCelular"></ion-input>
+                        <ion-input placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
                     </ion-item>
                     <ion-item>
-                        <ion-input placeholder="CPF" type="text" name="cpf" formControllName="sCpf"></ion-input>
+                        <ion-input placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
                     </ion-item>
                     <ion-item>
-                        <ion-datetime displayFormat="DD MM YYYY" placeholder="Data de Nascimento"></ion-datetime>
+                        <ion-datetime displayFormat="DD MM YYYY" formControlName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
                     </ion-item>
                     <div id="sexo">
                         <ion-list>
@@ -54,10 +54,10 @@
                 <ion-icon name="camera"></ion-icon>
               </div> -->
                     <ion-item>
-                        <ion-input placeholder="Nome de usuário" type="text" name="usuario" formControllName="sUsuario"></ion-input>
+                        <ion-input placeholder="Nome de usuário" type="text" name="usuario" formControlName="sUsuario"></ion-input>
                     </ion-item>
                     <ion-item>
-                        <ion-input placeholder="Senha" type="password" name="senha" formControllName="sSenha"></ion-input>
+                        <ion-input placeholder="Senha" type="password" name="senha" formControlName="sSenha"></ion-input>
                     </ion-item>
                     <button (click)="onSubmit()">Cadastrar</button>
                 </form>

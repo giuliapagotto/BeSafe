@@ -1,0 +1,94 @@
+#configuracao {
+    #conteudo {
+        button {
+            outline: none;
+        }
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: black;
+        opacity: 0.7;
+        ion-icon {
+            height: 100px;
+            width: 100px;
+            border: 3px solid;
+            border-color: #ffe370;
+            border-radius: 50%;
+            margin: 5%;
+            padding: 10px;
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            border: 2px solid;
+            border-radius: 15px;
+            background-color: transparent;
+            color: black;
+            opacity: 0.5;
+            font-size: 16px;
+            margin: 20px;
+            &[disabled] {
+                color: rgba($color: black, $alpha: 0.5);
+            }
+        }
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            ion-item {
+                width: 75%;
+                --highlight-color-focused: #ffe370;
+                --background: transparent;
+                --background-activated: transparent;
+                --background-focused: transparent;
+                --background-hover: transparent;
+                text-align: center;
+                color: rgba($color: #ffe370, $alpha: 0.8);
+                --border-color: rgba($color: #ffffff, $alpha: 0.8);
+                --highlight-color-valid: rgba(255, 255, 255, 0.3);
+                --highlight-height: 3px;
+                --color-hover: rgba($color: #ffffff, $alpha: 0.3);
+                --color-activated: rgba($color: #ffffff, $alpha: 0.3);
+                ion-datetime {
+                    display: contents;
+                    color: gray;
+                }
+                ion-input {
+                    color: gray;
+                }
+                &.item-has-focus {
+                    ion-label {
+                        color: #ffffff;
+                    }
+                }
+            }
+            #sexo {
+                display: flex;
+                flex-direction: row;
+                ion-list {
+                    background: transparent;
+                }
+                ion-item {
+                    width: 100%;
+                    ion-radio {
+                        --color: #ffe370;
+                        --color-checked: #ffe370;
+                        margin: 9px;
+                    }
+                    ion-label {
+                        color: gray;
+                    }
+                    &.item-radio-checked {
+                        ion-label {
+                            color: gray;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

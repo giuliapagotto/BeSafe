@@ -1,11 +1,19 @@
 <ion-content id="menu">
     <div class="conteudo">
         <div id="corpo">
-            <div class="icon">
+            <div (click)="itemClick('configuracao')" class="icon">
                 <ion-icon name="settings"></ion-icon>
                 <p>Configurações</p>
             </div>
-            <div class="icon" style="margin-bottom: 5px;" (click)="logOut()">
+            <div (click)="itemClick('perfil')" class="icon">
+                <ion-icon name="person"></ion-icon>
+                <p>Perfil</p>
+            </div>
+            <div (click)="itemClick('home')" class="icon">
+                <ion-icon name="home"></ion-icon>
+                <p>Home</p>
+            </div>
+            <div class="icon" style="margin-bottom: 5px;" (click)="itemClick('login')">
                 <ion-icon name="log-out"></ion-icon>
                 <p>Sair</p>
             </div>

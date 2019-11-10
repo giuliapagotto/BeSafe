@@ -1,39 +1,36 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: 'home.page.html',
-  styleUrls: ['home.page.scss'],
+  selector: 'app-perfil',
+  templateUrl: './perfil.page.html',
+  styleUrls: ['./perfil.page.scss'],
 })
-export class HomePage {
+export class PerfilPage implements OnInit {
 
-  public denunciaTexto;
- 
-  @ViewChild('inputPost', { static: false }) inputPost: ElementRef;
   @ViewChild('inputComentario', { static: false }) inputComentario: ElementRef;
 
-  public formPublicacao: FormGroup;
   public formComentario: FormGroup;
+  public denunciaTexto;
 
-  constructor(private _formBuilder: FormBuilder, private toastController: ToastController) { 
-    this.formPublicacao = this._formBuilder.group({
-      sTexto: new FormControl("", Validators.compose([Validators.required]))
-    });
+  constructor( private _formBuilder: FormBuilder, private _toastController: ToastController, private storage: Storage) {
     this.formComentario = this._formBuilder.group({
       sComentario: new FormControl("", Validators.compose([Validators.required]))
     })
-  }
+   }
 
   ngOnInit() {
-    document.querySelector("app-menu").removeAttribute("hidden");
+    // this.storage.get("Cadastro").then((oCadastro) => {
+
+    // })   
+    // this.storage.get("Email");
+    // this.storage.get("Usuario");
+
   }
 
   resize() {
-    this.inputPost.nativeElement.style.height = "50px";
-    this.inputPost.nativeElement.style.height = this.inputPost.nativeElement.scrollHeight + 'px';
-
     this.inputComentario.nativeElement.style.height = "45px";
     this.inputComentario.nativeElement.style.height = this.inputComentario.nativeElement.scrollHeight + 'px';
   }
@@ -41,10 +38,8 @@ export class HomePage {
   onSubmit() {
     let postData = new FormData
 
-    postData.append("Texto", this.formPublicacao.value)
     postData.append("Comentario", this.formComentario.value)
 
-    console.log(this.formPublicacao.value);
     console.log(this.formComentario.value);
 
     document.querySelector("textarea").value= "";
@@ -52,9 +47,9 @@ export class HomePage {
     this.presentToast();
 
   }
-  
+
   async presentToast() {
-    const toast = await this.toastController.create({
+    const toast = await this._toastController.create({
       message: 'Publicado com sucesso!',
       duration: 2000
     });
@@ -62,7 +57,7 @@ export class HomePage {
   }
 
   async presentToast2() {
-    const toast = await this.toastController.create({
+    const toast = await this._toastController.create({
       message: 'Denúncia enviada com sucesso! Obrigado por sua contribuição',
       duration: 3000
     });

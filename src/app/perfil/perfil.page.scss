@@ -1,6 +1,4 @@
-#home {
-    overflow: auto;
-    --background: #f8f8ff;
+#perfil {
     button {
         outline: none;
     }
@@ -78,37 +76,25 @@
         overflow: auto;
         margin-bottom: 15vh;
         color: darkslategray;
-        #publicar {
-            margin-top: 10px;
-            height: auto;
-            width: 80%;
-            box-shadow: 2px 2px 2px 2px gray;
-            border-radius: 15px;
-            background: #fff;
+        #cabecalho {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: darkslategray;
             #person {
-                height: 40px;
-                width: 40px;
+                height: 70px;
+                width: 70px;
+                border: 3px solid;
+                border-color: darkslategray;
                 border-radius: 50%;
-                border: 2px solid;
-                border-color: gray;
-                object-fit: cover;
-                color: gray;
-                margin: 10px;
+                margin: 15px;
+                padding: 5px;
             }
-            textarea {
-                border: none;
-                height: 42px;
-                outline: none;
-                margin-left: 10px;
-                width: 70%;
-            }
-            ion-icon {
-                height: 20px;
-                width: 20px;
-                color: gray;
-                margin-left: 90%;
-                &:hover {
-                    color: green;
+            #dados {
+                display: flex;
+                flex-direction: column;
+                ion-item {
+                    width: 220px;
                 }
             }
         }
@@ -163,28 +149,6 @@
                 ion-icon {
                     height: 20px;
                     width: 20px;
-                }
-            }
-            #pesquisar {
-                height: 30px;
-                // box-shadow: 2px 2px 2px 2px gray;
-                border: 1px solid;
-                border-color: gray;
-                border-radius: 15px;
-                display: flex;
-                flex-direction: row;
-                align-items: center;
-                width: 60%;
-                background: #fff;
-                textarea {
-                    border: none;
-                    outline: none;
-                    margin-left: 10px;
-                    width: 85%;
-                }
-                ion-icon {
-                    width: 20px;
-                    height: 20px;
                 }
             }
         }

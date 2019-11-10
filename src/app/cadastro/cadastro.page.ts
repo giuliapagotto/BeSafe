@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
+import { HttpClient } from '@angular/common/http';
+import { map } from 'rxjs/operators';
+import { DomSanitizer } from '@angular/platform-browser';
+import { Storage } from '@ionic/storage';
 
 @Component({
   selector: 'app-cadastro',
@@ -15,7 +19,8 @@ export class CadastroPage implements OnInit {
 
   public slides;
 
-  constructor(private _formBuilder: FormBuilder, private _navController: NavController) {
+  constructor(private _formBuilder: FormBuilder, private _navController: NavController, private _http: HttpClient,
+    private sanitizer: DomSanitizer, private storage: Storage) {
     this.formEmail = this._formBuilder.group({
       sEmail: new FormControl("", Validators.compose([Validators.required, Validators.email]))
     });
@@ -50,7 +55,14 @@ export class CadastroPage implements OnInit {
 
 
     this._navController.navigateRoot("login");
-    
+
+    // this._http.get('http://localhost:3333/DashboardController/').pipe(map((response: any) => response.json())).subscribe(data => {
+    //   console.log(data);
+    // });
+
+    this.storage.set("Cadastro", this.formCadastro.value);
+    this.storage.set("Email", this.formEmail.value);
+    this.storage.set("Usuario", this.formUsuario.value);
   }
 
   avancar() {

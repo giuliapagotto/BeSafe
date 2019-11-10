@@ -1,0 +1,40 @@
+<ion-content id="configuracao">
+    <div id="conteudo">
+        <ion-icon name="person"></ion-icon>
+        <form name="formPerfil" [formGroup]="formPerfil">
+            <ion-item>
+                <ion-input id="nome" placeholder="Nome" type="text" name="nome" formControllName="sNome"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input id="celular" placeholder="Celular" type="text" name="celular" formControllName="sCelular"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-input id="cpf" placeholder="CPF" type="text" name="cpf" formControllName="sCpf"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-datetime id="dataNascimento" displayFormat="DD MM YYYY" formControllName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
+            </ion-item>
+            <div id="sexo">
+                <ion-list>
+                    <ion-radio-group name="sexo" formControlName="sSexo" id="sexoInput">
+                        <ion-row>
+                            <ion-col>
+                                <ion-item style="color: transparent" lines="none">
+                                    <ion-label>Masculino</ion-label>
+                                    <ion-radio mode="md" slot="start" value="M" checked></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                            <ion-col>
+                                <ion-item style="color: transparent" lines="none">
+                                    <ion-label>Feminino</ion-label>
+                                    <ion-radio mode="md" slot="start" value="F"></ion-radio>
+                                </ion-item>
+                            </ion-col>
+                        </ion-row>
+                    </ion-radio-group>
+                </ion-list>
+            </div>
+            <button (click)="salvar()">Salvar</button>
+        </form>
+    </div>
+</ion-content>

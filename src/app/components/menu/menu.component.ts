@@ -13,8 +13,8 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
   }
 
-  logOut() {
-    this._navController.navigateRoot("/login");
+  itemClick(page) {
+    this._navController.navigateRoot("/" + page);
 
     document.getElementById("corpo").classList.toggle("open");
     document.getElementById("botao").classList.toggle("open-botao");
