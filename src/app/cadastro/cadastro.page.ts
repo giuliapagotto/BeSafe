@@ -59,7 +59,7 @@ export class CadastroPage implements OnInit {
 
     this._navController.navigateRoot("login");
 
-    this._http.get('localhost:3333/dashboard').pipe(map((response: any) => response.json())).subscribe(data => {
+    this._http.get('localhost:3333/sessions').pipe(map((response: any) => response.json())).subscribe(data => {
       console.log(data);
     });
 

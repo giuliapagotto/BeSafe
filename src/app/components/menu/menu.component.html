@@ -1,17 +1,25 @@
 <ion-content id="menu">
     <div class="conteudo">
         <div id="corpo">
-            <div (click)="itemClick('configuracao')" class="icon">
-                <ion-icon name="settings"></ion-icon>
-                <p>Configurações</p>
+            <div (click)="itemClick('home')" class="icon">
+                <ion-icon name="home"></ion-icon>
+                <p>Home</p>
             </div>
             <div (click)="itemClick('perfil')" class="icon">
                 <ion-icon name="person"></ion-icon>
                 <p>Perfil</p>
             </div>
-            <div (click)="itemClick('home')" class="icon">
-                <ion-icon name="home"></ion-icon>
-                <p>Home</p>
+            <div class="icon">
+                <ion-icon name="chatbubbles"></ion-icon>
+                <p>Chat</p>
+            </div>
+            <div (click)="itemClick('chamada')" class="icon">
+                <ion-icon name="call"></ion-icon>
+                <p>Emergência</p>
+            </div>
+            <div (click)="itemClick('configuracao')" class="icon">
+                <ion-icon name="settings"></ion-icon>
+                <p>Configurações</p>
             </div>
             <div class="icon" style="margin-bottom: 5px;" (click)="itemClick('login')">
                 <ion-icon name="log-out"></ion-icon>

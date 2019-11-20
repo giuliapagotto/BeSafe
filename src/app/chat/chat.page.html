@@ -1,0 +1,39 @@
+<ion-content id="chat">
+    <ion-slides (ionSlideDidChange)="animation()" mode="ios" pager="ios">
+        <ion-slide>
+            <div class="conteudo">
+                <img src="../../assets/img/besafeNamelogo2.png" alt="">
+                <h3>Seja bem-vindx!</h3>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="conteudo">
+                <h2>Você não está sozinho!</h2>
+                <img src="../../assets/img/people.png" alt="">
+                <h5 style="margin-top: -30px;">Existem milhares de pessoas passando por situações como a sua. Pessoas de diversas idades, etnias e classes sociais. Vamos melhorar JUNTOS.</h5>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="conteudo">
+                <h4 style="width: 90%;">A proposta de valor do Be Safe é atender a todos, conectando vocês com a Ajuda a todo instante</h4>
+                <img id="talk" src="../../assets/img/conexão.png" alt="">
+                <h4 style="width: 90%;">Possibilitando o contato com profissionais a partir de qualquer lugar.</h4>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="conteudo">
+                <h4>Além de reduzir o custo das consultas</h4>
+                <img id="money" src="../../assets/img/money.png" alt="">
+                <h4>Oferecendo um serviço de qualidade por uma quantia muito mais baixa.</h4>
+            </div>
+        </ion-slide>
+        <ion-slide>
+            <div class="conteudo">
+                <img src="../../assets/img/besafeNamelogo2.png" alt="">
+                <img id="money" src="../../assets/img/talk.png" alt="">
+                <h2>Vem conversar com a gente!</h2>
+                <ion-icon (click)="itemClick('login')" style="height: 40px;width: 40px;" name="arrow-forward"></ion-icon>
+            </div>
+        </ion-slide>
+    </ion-slides>
+</ion-content>

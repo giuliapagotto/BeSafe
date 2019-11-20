@@ -48,6 +48,10 @@ export class PerfilPage implements OnInit {
 
   }
 
+  edit() {
+
+  }
+  
   async presentToast() {
     const toast = await this._toastController.create({
       message: 'Publicado com sucesso!',

@@ -1,0 +1,48 @@
+#chat {
+    #money {
+        height: 225px;
+        width: 225px;
+        transform: scale(0.6);
+        &.active {
+            animation: crescendo 1.5s ease-in;
+        }
+    }
+    ion-slides {
+        width: 100vw;
+        height: 100vh;
+        background: #ffe370;
+        .swiper-pagination-bullet-active {
+            --background: white!important;
+        }
+        .swiper-pagination-bullet {
+            --background: white!important;
+        }
+        ion-slide {
+            .conteudo {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                color: darkslategray;
+                p {
+                    text-align: right;
+                    margin-right: 11px;
+                    margin-top: 0;
+                    font-size: 15px;
+                }
+                #talk {
+                    height: 250px;
+                }
+            }
+        }
+    }
+}
+
+@keyframes crescendo {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(0.6);
+    }
+}
