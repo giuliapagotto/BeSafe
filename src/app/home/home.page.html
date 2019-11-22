@@ -21,7 +21,7 @@
             </div>
         </div>
         <div id="feed">
-            <div class="publicacao">
+            <div *ngFor="let arrObjPublicacao" class="publicacao">
                 <div (click)="opcoes()" class="pessoa">
                     <ion-icon name="person"></ion-icon>
                     <p>Lucas Castro</p>

@@ -9,6 +9,8 @@ const routes: Routes = [
   { path: 'perfil', loadChildren: './perfil/perfil.module#PerfilPageModule' },
   { path: 'configuracao', loadChildren: './configuracao/configuracao.module#ConfiguracaoPageModule' },
   { path: 'chat', loadChildren: './chat/chat.module#ChatPageModule' },
+  { path: 'escolha', loadChildren: './escolha/escolha.module#EscolhaPageModule' },
+  { path: 'profissional', loadChildren: './profissional/profissional.module#ProfissionalPageModule' },
 ];
 
 @NgModule({

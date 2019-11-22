@@ -19,7 +19,7 @@ export class LoginPage implements OnInit {
   }
 
   cadastro() {
-    this._navController.navigateRoot("/cadastro");
+    this._navController.navigateRoot("/escolha");
   }
 
 }

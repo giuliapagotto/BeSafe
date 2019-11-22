@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, Validators, FormGroup } from '@angular/forms';
 import { NavController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
-import { map } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Storage } from '@ionic/storage';
 
 @Component({
-  selector: 'app-cadastro',
-  templateUrl: './cadastro.page.html',
-  styleUrls: ['./cadastro.page.scss'],
+  selector: 'app-profissional',
+  templateUrl: './profissional.page.html',
+  styleUrls: ['./profissional.page.scss'],
 })
-export class CadastroPage implements OnInit {
+export class ProfissionalPage implements OnInit {
 
   public formEmail: FormGroup;
   public formCadastro: FormGroup;
@@ -78,5 +77,4 @@ export class CadastroPage implements OnInit {
   voltar() {
     this.slides.slidePrev();
   }
-
 }

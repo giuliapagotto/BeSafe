@@ -1,0 +1,29 @@
+#escolha {
+    --background: #ffe370;
+    #tipo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        color: black;
+        height: 80vh;
+        opacity: 0.5;
+        #tipoButton {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            width: 70%;
+            .escolha {
+                width: 120px;
+                height: 50px;
+                border: 2px solid;
+                border-radius: 15px;
+                background-color: transparent;
+                color: black;
+                font-size: 16px;
+                margin: 20px;
+            }
+        }
+    }
+}
