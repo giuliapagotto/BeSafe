@@ -31,7 +31,6 @@
         }
         form {
             width: 65%;
-            margin-left: -20%;
             ion-item {
                 --highlight-color-focused: #ffffff;
                 --background: transparent;
@@ -83,9 +82,13 @@
         ion-slides {
             margin-top: 40%;
             margin-bottom: 5%;
+            max-width: 300vw!important;
             ion-slide {
                 display: flex;
                 flex-direction: column;
+                width: 100vw!important;
+                justify-content: center;
+                align-items: center;
             }
         }
         p {

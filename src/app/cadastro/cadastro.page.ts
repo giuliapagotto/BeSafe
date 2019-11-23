@@ -16,10 +16,10 @@ export class CadastroPage implements OnInit {
   public formEmail: FormGroup;
   public formCadastro: FormGroup;
   public formUsuario: FormGroup;
-  public slidesOptions: {
+  public slidesOptions = {
     allowTouchMove: false,
     simulateTouch: false
-  }
+  };
   public slides;
  
   constructor(private _formBuilder: FormBuilder, private _navController: NavController, private _http: HttpClient,
