@@ -1,69 +1,87 @@
 <ion-content id="profissional" fullscreen="true">
-    <div id="conteudo" [hidden]="usu">
-        <p id="titulo">Olá, preencha os dados de cadastro de profissional</p>
-        <ion-slides id="slides" mode="ios" [options]="slidesOptions">
-            <ion-slide>
-                <form name="formEmail" [formGroup]="formEmail">
-                    <ion-item>
-                        <ion-input placeholder="E-mail" type="email" name="email" formControlName="sEmail"></ion-input>
-                    </ion-item>
-                    <button (click)="avancar()">Avançar</button>
-                </form>
-            </ion-slide>
-            <ion-slide>
-                <form name="formCadastro" [formGroup]="formCadastro">
-                    <ion-item>
-                        <ion-input placeholder="Nome" type="text" name="nome" formControlName="sNome"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-datetime displayFormat="DD MM YYYY" formControlName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
-                    </ion-item>
-                    <div id="sexo">
-                        <ion-list>
-                            <ion-radio-group name="sexo" formControlName="sSexo">
-                                <ion-row>
-                                    <ion-col>
-                                        <ion-item style="color: transparent" lines="none">
-                                            <ion-label>Masculino</ion-label>
-                                            <ion-radio mode="md" slot="start" value="M" checked></ion-radio>
-                                        </ion-item>
-                                    </ion-col>
-                                    <ion-col>
-                                        <ion-item style="color: transparent" lines="none">
-                                            <ion-label>Feminino</ion-label>
-                                            <ion-radio mode="md" slot="start" value="F"></ion-radio>
-                                        </ion-item>
-                                    </ion-col>
-                                </ion-row>
-                            </ion-radio-group>
-                        </ion-list>
-                    </div>
-                    <button (click)="voltar()">Voltar</button>
-                    <button (click)="avancar()">Avançar</button>
-                </form>
-            </ion-slide>
-            <ion-slide>
-                <form name="formUsuario" [formGroup]="formUsuario">
-                    <!-- <div id="img">
-                <ion-icon name="camera"></ion-icon>
-              </div> -->
-                    <ion-item>
-                        <ion-input placeholder="Nome de usuário" type="text" name="usuario" formControlName="sUsuario"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                        <ion-input placeholder="Senha" type="password" name="senha" formControlName="sSenha"></ion-input>
-                    </ion-item>
-                    <button (click)="onSubmit()">Cadastrar</button>
-                </form>
-            </ion-slide>
-
-        </ion-slides>
-        <p style=" font-size: 18px;">BeSafe - APP</p>
+    <div class="conteudo" [hidden]="!cadastro">
+        <p id="titulo" style="margin-top: 10%;">Olá, preencha os dados de cadastro</p>
+    </div>
+    <ion-slides [hidden]="!cadastro" id="slides" mode="ios" [options]="slidesOptions">
+        <ion-slide>
+            <form name="formCrp" [formGroup]="formCrp">
+                <ion-item>
+                    <ion-input placeholder="RG" type="text" name="rg" formControlName="sRg"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input placeholder="CRP" type="text" name="crp" formControlName="sCrp"></ion-input>
+                </ion-item>
+                <button (click)="avancar()">Avançar</button>
+            </form>
+        </ion-slide>
+        <ion-slide>
+            <form name="formEmail" [formGroup]="formEmail">
+                <ion-item>
+                    <ion-input placeholder="E-mail" type="email" name="email" formControlName="sEmail"></ion-input>
+                </ion-item>
+                <button (click)="voltar()">Voltar</button>
+                <button (click)="avancar()">Avançar</button>
+            </form>
+        </ion-slide>
+        <ion-slide>
+            <form name="formCadastro" [formGroup]="formCadastro">
+                <ion-item>
+                    <ion-input placeholder="Nome" type="text" name="nome" formControlName="sNome"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-datetime displayFormat="DD MM YYYY" formControlName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
+                </ion-item>
+                <div id="sexo">
+                    <ion-list style="width: 100%;">
+                        <ion-radio-group name="sexo" formControlName="sSexo">
+                            <ion-row>
+                                <ion-col size="6">
+                                    <ion-item style="color: transparent" lines="none">
+                                        <ion-label>Masculino</ion-label>
+                                        <ion-radio mode="md" slot="start" value="M" checked></ion-radio>
+                                    </ion-item>
+                                </ion-col>
+                                <ion-col size="6">
+                                    <ion-item style="color: transparent" lines="none">
+                                        <ion-label>Feminino</ion-label>
+                                        <ion-radio mode="md" slot="start" value="F"></ion-radio>
+                                    </ion-item>
+                                </ion-col>
+                            </ion-row>
+                        </ion-radio-group>
+                    </ion-list>
+                </div>
+                <button (click)="voltar()">Voltar</button>
+                <button (click)="avancar()">Avançar</button>
+            </form>
+        </ion-slide>
+        <ion-slide>
+            <form name="formUsuario" [formGroup]="formUsuario">
+                <!-- <div id="img">
+            <ion-icon name="camera"></ion-icon>
+          </div> -->
+                <ion-item>
+                    <ion-input placeholder="Nome de usuário" type="text" name="usuario" formControlName="sUsuario"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input placeholder="Senha" type="password" name="senha" formControlName="sSenha"></ion-input>
+                </ion-item>
+                <button (click)="onSubmit()">Cadastrar</button>
+            </form>
+        </ion-slide>
+    </ion-slides>
+    <div class="conteudo" [hidden]="!cadastro">
+        <p style="font-size: 18px;">BeSafe - APP</p>
+    </div>
+    <div id="mensagem" [hidden]="cadastro">
+        <h3>Agradeçemos o contato, fique atento ao seu E-mail para atualizações do processo.</h3>
+        <h3>Enquanto seu perfil é analisado você pode interagir com a plataforma a nível de usuário. Faça login e aproveite!</h3>
+        <button (click)="login()">Login</button>
     </div>
 </ion-content>

@@ -14,6 +14,13 @@ ion-content {
             align-items: center;
             width: 80vw;
             border-radius: 15px;
+            form {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
             ion-item {
                 width: 80%;
                 --highlight-color-focused: black;

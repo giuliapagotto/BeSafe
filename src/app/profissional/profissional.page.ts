@@ -12,6 +12,7 @@ import { Storage } from '@ionic/storage';
 })
 export class ProfissionalPage implements OnInit {
 
+  public formCrp: FormGroup;
   public formEmail: FormGroup;
   public formCadastro: FormGroup;
   public formUsuario: FormGroup;
@@ -20,9 +21,14 @@ export class ProfissionalPage implements OnInit {
     simulateTouch: false
   }
   public slides;
- 
+  public cadastro = true;
+
   constructor(private _formBuilder: FormBuilder, private _navController: NavController, private _http: HttpClient,
     private sanitizer: DomSanitizer, private storage: Storage) {
+    this.formCrp = this._formBuilder.group({
+      sRg: new FormControl("", Validators.compose([Validators.required])),
+      sCrp: new FormControl("", Validators.compose([Validators.required]))
+    })
     this.formEmail = this._formBuilder.group({
       sEmail: new FormControl("", Validators.compose([Validators.required, Validators.email]))
     });
@@ -45,24 +51,27 @@ export class ProfissionalPage implements OnInit {
   }
 
   onSubmit() {
+
+    this.cadastro = false;
+
     let postData = new FormData
 
+    postData.append("Crp" ,this.formCrp.value)
     postData.append("Email", this.formEmail.value),
-      postData.append("Cadastro", this.formCadastro.value),
-      postData.append("Usuario", this.formUsuario.value)
+    postData.append("Cadastro", this.formCadastro.value),
+    postData.append("Usuario", this.formUsuario.value)
 
-    // console.log(this.formEmail.value);
-    // console.log(this.formCadastro.value);
-    // console.log(this.formEmail.value);
+    console.log(this.formCrp.value);
+    console.log(this.formEmail.value);
+    console.log(this.formCadastro.value);
+    console.log(this.formEmail.value);
 
-
-    this._navController.navigateRoot("login");
 
     // this._http.get('localhost:3333/sessions').pipe(map((response: any) => response.json())).subscribe(data => {
     //   console.log(data);
     // });
 
-    this._http.get('localhost:3333/sessions').subscribe((response) =>{
+    this._http.get('localhost:3333/sessions').subscribe((response) => {
       console.log(response)
     })
 
@@ -76,5 +85,8 @@ export class ProfissionalPage implements OnInit {
   }
   voltar() {
     this.slides.slidePrev();
+  }
+  login() {
+    this._navController.navigateRoot("/login");
   }
 }

@@ -17,8 +17,8 @@ export class CadastroPage implements OnInit {
   public formCadastro: FormGroup;
   public formUsuario: FormGroup;
   public slidesOptions = {
-    allowTouchMove: false,
-    simulateTouch: false
+    // allowTouchMove: false,
+    // simulateTouch: false
   };
   public slides;
  

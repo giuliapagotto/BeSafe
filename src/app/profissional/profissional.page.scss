@@ -1,91 +1,107 @@
 #profissional {
     --background: #ffe370;
-    #conteudo {
+    #mensagem {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        h3 {
+            width: 80%;
+            text-align: center;
+            color: black;
+            opacity: 0.7;
+            margin: 10%;
+        }
+    }
+    .conteudo {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        height: 100vh;
         color: black;
         opacity: 0.7;
         #titulo {
-            position: fixed;
-            top: 10%;
             width: 100%;
             text-align: center;
             font-size: 25px;
         }
-        button {
-            width: 100px;
-            height: 40px;
-            border: 2px solid;
-            border-radius: 15px;
-            background-color: transparent;
-            color: black;
-            opacity: 0.5;
-            font-size: 16px;
-            margin: 20px;
-            &[disabled] {
-                color: rgba($color: black, $alpha: 0.5);
+    }
+    button {
+        width: 100px;
+        height: 40px;
+        border: 2px solid;
+        border-radius: 15px;
+        background-color: transparent;
+        color: black;
+        opacity: 0.5;
+        font-size: 16px;
+        margin: 20px;
+        &[disabled] {
+            color: rgba($color: black, $alpha: 0.5);
+        }
+    }
+    ion-slides {
+        margin-bottom: 5%;
+        // max-width: 300vw!important;
+        ion-slide {
+            height: 450px;
+            display: flex;
+            flex-direction: column;
+            // width: 100vw!important;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    form {
+        color: black;
+        opacity: 0.7;
+        width: 80%;
+        ion-item {
+            --highlight-color-focused: #ffffff;
+            --background: transparent;
+            --background-activated: transparent;
+            --background-focused: transparent;
+            --background-hover: transparent;
+            text-align: center;
+            color: #ffffff;
+            --border-color: rgba($color: #ffffff, $alpha: 0.8);
+            --highlight-color-valid: rgba(255, 255, 255, 0.3);
+            --color-hover: rgba($color: #ffffff, $alpha: 0.3);
+            --color-activated: rgba($color: #ffffff, $alpha: 0.3);
+            ion-datetime {
+                display: contents;
+                color: gray;
+            }
+            ion-input {
+                color: gray;
+            }
+            &.item-has-focus {
+                ion-label {
+                    color: #ffffff;
+                }
             }
         }
-        form {
-            width: 65%;
-            margin-left: -20%;
-            ion-item {
-                --highlight-color-focused: #ffffff;
-                --background: transparent;
-                --background-activated: transparent;
-                --background-focused: transparent;
-                --background-hover: transparent;
-                text-align: center;
-                color: #ffffff;
-                --border-color: rgba($color: #ffffff, $alpha: 0.8);
-                --highlight-color-valid: rgba(255, 255, 255, 0.3);
-                --color-hover: rgba($color: #ffffff, $alpha: 0.3);
-                --color-activated: rgba($color: #ffffff, $alpha: 0.3);
-                ion-datetime {
-                    display: contents;
-                    color: gray;
-                }
-                ion-input {
-                    color: gray;
-                }
-                &.item-has-focus {
-                    ion-label {
-                        color: #ffffff;
-                    }
-                }
+        #sexo {
+            display: flex;
+            flex-direction: row;
+            ion-list {
+                background: transparent;
             }
-            #sexo {
-                display: flex;
-                flex-direction: row;
-                ion-list {
-                    background: transparent;
+            ion-item {
+                ion-radio {
+                    --color: rgba(gray, 0.3);
+                    --color-checked: gray;
+                    margin: 9px;
                 }
-                ion-item {
-                    ion-radio {
-                        --color: rgba(gray, 0.3);
-                        --color-checked: gray;
-                        margin: 9px;
-                    }
+                ion-label {
+                    color: gray;
+                }
+                &.item-radio-checked {
                     ion-label {
                         color: gray;
                     }
-                    &.item-radio-checked {
-                        ion-label {
-                            color: gray;
-                        }
-                    }
                 }
-            }
-        }
-        ion-slides {
-            margin-top: 40%;
-            margin-bottom: 5%;
-            ion-slide {
-                display: flex;
-                flex-direction: column;
             }
         }
         p {

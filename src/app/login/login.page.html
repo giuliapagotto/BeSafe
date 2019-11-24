@@ -3,13 +3,15 @@
         <div id="conteudo" style="margin-top: -30%;">
             <img src="../../assets/img/besafeNamelogo2.png" alt="">
             <h3>Faça login com seu usuário</h3>
-            <ion-item style="margin-top: 45%;">
-                <ion-input type="text" placeholder="Usuário"></ion-input>
-            </ion-item>
-            <ion-item>
-                <ion-input type="password" placeholder="Senha"></ion-input>
-            </ion-item>
-            <button (click)="home()">Login</button>
+            <form name="formLogin" [formGroup]="formLogin">
+                <ion-item style="margin-top: 45%;">
+                    <ion-input name="usuario" formControlName="sUsuario" type="text" placeholder="Usuário"></ion-input>
+                </ion-item>
+                <ion-item>
+                    <ion-input name="senha" formControlName="sSenha" type="password" placeholder="Senha"></ion-input>
+                </ion-item>
+                <button (click)="onSubmit()">Login</button>
+            </form>
             <a (click)="cadastro()">Cadastre-se</a>
         </div>
     </div>
