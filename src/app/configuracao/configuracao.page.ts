@@ -23,12 +23,13 @@ export class ConfiguracaoPage implements OnInit {
   }
 
   ngOnInit() {
-    this.storage.get("Cadastro").then((oCadastro) => {
-      document.querySelector("#nome").setAttribute("value", oCadastro.sNome);
-      document.querySelector("#celular").setAttribute("value", oCadastro.sCelular);
-      document.querySelector("#cpf").setAttribute("value", oCadastro.sCpf);
-      document.querySelector("#dataNascimento").setAttribute("value", oCadastro.sDataNascimento);
-      document.querySelector("#sexoInput").setAttribute("value", oCadastro.sSexo);
+    this.storage.get("dadosUsuario").then((oCadastro) => {
+      document.querySelector(".id").setAttribute("value", oCadastro._id);
+      document.querySelector("#nome").setAttribute("value", oCadastro.nome);
+      document.querySelector("#celular").setAttribute("value", oCadastro.celular);
+      // document.querySelector("#cpf").setAttribute("value", oCadastro.sCpf);
+      document.querySelector("#dataNascimento").setAttribute("value", oCadastro.dataNascimento);
+      document.querySelector("#sexoInput").setAttribute("value", oCadastro.sexo);
 
       console.log(oCadastro);
       

@@ -5,9 +5,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 
 import { HomePage } from './home.page';
+import { BrMaskerModule } from 'br-mask';
 
 @NgModule({
   imports: [
+    BrMaskerModule,
     CommonModule,
     ReactiveFormsModule,
     FormsModule,

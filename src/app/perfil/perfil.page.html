@@ -7,12 +7,12 @@
             <ion-icon id="person" name="person"></ion-icon>
             <div id="dados">
                 <ion-item>
-                    <ion-input type="text" readonly value="Usuário"></ion-input>
-                    <ion-icon name="create" slot="end"></ion-icon>
+                    <ion-input id="login" type="text" readonly></ion-input>
+                    <ion-icon (click)="edit('login')" name="create" slot="end"></ion-icon>
                 </ion-item>
                 <ion-item>
-                    <ion-input type="password" readonly value="senha"></ion-input>
-                    <ion-icon name="create" slot="end"></ion-icon>
+                    <ion-input id="senha" type="password" readonly></ion-input>
+                    <ion-icon (click)="edit('senha')" name="create" slot="end"></ion-icon>
                 </ion-item>
             </div>
         </div>

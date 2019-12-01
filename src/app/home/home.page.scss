@@ -195,7 +195,8 @@
                 display: flex;
                 flex-direction: column;
                 height: auto;
-                min-height: 30vh;
+                min-height: 20vh;
+                min-width: 75vw;
                 // border: 1px solid;
                 border-radius: 15px;
                 margin-top: 20px;
@@ -262,7 +263,7 @@
                         }
                     }
                 }
-                #comentarios {
+                .comentarios {
                     display: flex;
                     flex-direction: column;
                     justify-content: center;
@@ -271,7 +272,7 @@
                     background: #f8f8ff;
                     .publicacao {
                         margin: 10px 0 10px 25px;
-                        min-height: 20vh;
+                        min-height: 17vh;
                         p {
                             font-size: 15px;
                         }

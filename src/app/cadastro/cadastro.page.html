@@ -17,13 +17,13 @@
                     <ion-input placeholder="Nome" type="text" name="nome" formControlName="sNome"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
+                    <ion-input [brmasker]="{phone: true}" placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
+                    <ion-input [brmasker]="{mask:'000.000.000-00', len:14}" placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-datetime displayFormat="DD MM YYYY" formControlName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
+                    <ion-input type="text" [brmasker]="{mask:'00/00/0000', len:10}" name="dataNascimento" placeholder="dd/mm/yyyyy" formControlName="sDataNascimento"></ion-input>
                 </ion-item>
                 <div id="sexo">
                     <ion-list style="width: 100%;">

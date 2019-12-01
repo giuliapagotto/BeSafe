@@ -22,11 +22,12 @@ export class PerfilPage implements OnInit {
    }
 
   ngOnInit() {
-    // this.storage.get("Cadastro").then((oCadastro) => {
-
-    // })   
-    // this.storage.get("Email");
-    // this.storage.get("Usuario");
+    this.storage.get("dadosUsuario").then((oCadastro) => {
+      document.querySelector("#login").setAttribute("value", oCadastro.nome);
+      document.querySelector("#senha").setAttribute("value", oCadastro.celular);
+      console.log(oCadastro);
+      
+    })
 
   }
 
@@ -48,7 +49,14 @@ export class PerfilPage implements OnInit {
 
   }
 
-  edit() {
+  edit(campo) {
+    if(campo == "login"){
+      document.querySelector("#login").removeAttribute("readonly");
+    }
+    if(campo == "senha"){
+      document.querySelector("#senha").removeAttribute("readonly");
+
+    }
 
   }
   

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators, FormBuilder, FormGroup } from '@angular/forms';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -21,9 +21,9 @@ export class CadastroPage implements OnInit {
     // simulateTouch: false
   };
   public slides;
- 
+
   constructor(private _formBuilder: FormBuilder, private _navController: NavController, private _http: HttpClient,
-    private sanitizer: DomSanitizer, private storage: Storage) {
+    private sanitizer: DomSanitizer, private storage: Storage, private toastController: ToastController) {
     this.formEmail = this._formBuilder.group({
       sEmail: new FormControl("", Validators.compose([Validators.required, Validators.email]))
     });
@@ -45,31 +45,38 @@ export class CadastroPage implements OnInit {
     document.querySelector("app-menu").setAttribute("hidden", "true");
   }
 
+  async presentToast() {
+    const toast = await this.toastController.create({
+      message: 'Publicado com sucesso!',
+      duration: 2000
+    });
+    toast.present();
+  }
+
+
   onSubmit() {
-    let postData = new FormData
+    let options = {
+      headers: {
+        "nome": [this.formCadastro.controls.sNome.value],
+        "sexo": [this.formCadastro.controls.sSexo.value],
+        "dataNascimento": [this.formCadastro.controls.sDataNascimento.value],
+        "celular": [this.formCadastro.controls.sCelular.value],
+        "cpf": [this.formCadastro.controls.sCpf.value],
+        "email": [this.formEmail.controls.sEmail.value],
+        "login": [this.formUsuario.controls.sUsuario.value],
+        "senha": [this.formUsuario.controls.sSenha.value]
+      }
+    }
 
-    postData.append("Email", this.formEmail.value),
-      postData.append("Cadastro", this.formCadastro.value),
-      postData.append("Usuario", this.formUsuario.value)
 
-    // console.log(this.formEmail.value);
-    // console.log(this.formCadastro.value);
-    // console.log(this.formEmail.value);
-
-
-    this._navController.navigateRoot("login");
-
-    // this._http.get('localhost:3333/sessions').pipe(map((response: any) => response.json())).subscribe(data => {
-    //   console.log(data);
-    // });
-
-    this._http.get('localhost:3333/sessions').subscribe((response) =>{
+    this._http.post('http://localhost:3333/sessions', null, options).subscribe((response) => {
       console.log(response)
-    })
+      this.presentToast();
+      setTimeout(() => {
+        this._navController.navigateRoot("/login");
+      }, 1000);
+    });
 
-    this.storage.set("Cadastro", this.formCadastro.value);
-    this.storage.set("Email", this.formEmail.value);
-    this.storage.set("Usuario", this.formUsuario.value);
   }
 
   avancar() {

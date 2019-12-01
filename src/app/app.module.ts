@@ -17,7 +17,7 @@ import { CallNumber } from '@ionic-native/call-number/ngx';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [MenuComponent],
-  imports: [BrowserModule, IonicStorageModule.forRoot(), HttpClientModule, ComponentsModule,IonicModule.forRoot(), AppRoutingModule],
+  imports: [BrowserModule,IonicStorageModule.forRoot(), HttpClientModule, ComponentsModule,IonicModule.forRoot(), AppRoutingModule],
   providers: [
     CallNumber,
     StatusBar,

@@ -1,4 +1,8 @@
 <ion-content id="home">
+    <form name="formId" [formGroup]="formId" hidden>
+        <ion-input class="id" name="id" formControlName="sId"></ion-input>
+        <ion-input class="nomeUser" name="nomeUser" formControlName="sNome"></ion-input>
+    </form>
     <div id="header">
         <img src="../../assets/img/besafeNamelogo.png" alt="">
     </div>
@@ -7,7 +11,7 @@
             <form name="formPublicacao" [formGroup]="formPublicacao">
                 <ion-icon id="person" name="person"></ion-icon>
                 <textarea formControlName="sTexto" #inputPost id="inputPost" rows="2" (keyup)="resize()" placeholder="O que está acontecendo?"></textarea>
-                <ion-icon (click)="onSubmit()" name="checkmark-circle-outline"></ion-icon>
+                <ion-icon (click)="onSubmit('publicar')" name="checkmark-circle-outline"></ion-icon>
             </form>
         </div>
         <div id="feed-title">
@@ -21,346 +25,45 @@
             </div>
         </div>
         <div id="feed">
-            <div *ngFor="let arrObjPublicacao" class="publicacao">
+            <div *ngFor="let post of arrObjPost" class="publicacao">
+                <ion-input class="postId" name="postId" hidden>{{post._id}}</ion-input>
                 <div (click)="opcoes()" class="pessoa">
                     <ion-icon name="person"></ion-icon>
                     <p>Lucas Castro</p>
                 </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
-                </p>
+                <p>{{post.texto}}</p>
                 <div class="buttons">
-                    <button (click)="comentario()" class="comentario">
+                    <button (click)="comentario($event)" class="comentario">
                         <ion-icon name="chatboxes"></ion-icon>
                     </button>
                     <button (click)="denuncia('pub')" class="denuncia">
                         <ion-icon name="alert"></ion-icon>
                     </button>
                 </div>
-                <div id="comentarios" hidden>
+                <div class="comentarios" hidden>
                     <div id="comentar">
                         <form name="formComentario" [formGroup]="formComentario">
                             <ion-icon id="usuario" name="person"></ion-icon>
                             <textarea formControlName="sComentario" #inputComentario id="inputComentario" rows="1" (keyup)="resize()" name="sComentario" placeholder="Faça um comentário"></textarea>
-                            <ion-icon (click)="onSubmit()" name="checkmark-circle-outline"></ion-icon>
+                            <ion-icon (click)="onSubmit('comentar')" name="checkmark-circle-outline"></ion-icon>
                         </form>
                     </div>
-                    <div class="publicacao">
+                    <div *ngFor="let comentario of arrObjComent" class="publicacao">
                         <div (click)="opcoes()" class="pessoa">
                             <ion-icon name="person"></ion-icon>
                             <p>Lucas Castro</p>
                         </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
+                        <p>{{comentario.texto}}</p>
                         <div class="buttons">
                             <button (click)="denuncia()" class="denuncia">
                                     <ion-icon name="alert"></ion-icon>
                                 </button>
                         </div>
                     </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                        <ion-icon name="alert"></ion-icon>
-                                    </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                        <ion-icon name="alert"></ion-icon>
-                                    </button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
-            <div class="publicacao">
-                <div (click)="opcoes()" class="pessoa">
-                    <ion-icon name="person"></ion-icon>
-                    <p>Lucas Castro</p>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
-                </p>
-                <div class="buttons">
-                    <button (click)="comentario()" class="comentario">
-                            <ion-icon name="chatboxes"></ion-icon>
-                        </button>
-                    <button (click)="denuncia('pub')" class="denuncia">
-                            <ion-icon name="alert"></ion-icon>
-                        </button>
-                </div>
-                <div id="comentarios" hidden>
-                    <div id="comentar">
-                        <form name="formComentario" [formGroup]="formComentario">
-                            <ion-icon id="usuario" name="person"></ion-icon>
-                            <textarea formControlName="sComentario" #inputComentario id="inputComentario" rows="1" (keyup)="resize()" name="sComentario" placeholder="Faça um comentário"></textarea>
-                            <ion-icon (click)="onSubmit()" name="checkmark-circle-outline"></ion-icon>
-                        </form>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                        <ion-icon name="alert"></ion-icon>
-                                    </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                            <ion-icon name="alert"></ion-icon>
-                                        </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                            <ion-icon name="alert"></ion-icon>
-                                        </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="publicacao">
-                <div (click)="opcoes()" class="pessoa">
-                    <ion-icon name="person"></ion-icon>
-                    <p>Lucas Castro</p>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
-                </p>
-                <div class="buttons">
-                    <button (click)="comentario()" class="comentario">
-                                <ion-icon name="chatboxes"></ion-icon>
-                            </button>
-                    <button (click)="denuncia('pub')" class="denuncia">
-                                <ion-icon name="alert"></ion-icon>
-                            </button>
-                </div>
-                <div id="comentarios" hidden>
-                    <div id="comentar">
-                        <form name="formComentario" [formGroup]="formComentario">
-                            <ion-icon id="usuario" name="person"></ion-icon>
-                            <textarea formControlName="sComentario" #inputComentario id="inputComentario" rows="1" (keyup)="resize()" name="sComentario" placeholder="Faça um comentário"></textarea>
-                            <ion-icon (click)="onSubmit()" name="checkmark-circle-outline"></ion-icon>
-                        </form>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                            <ion-icon name="alert"></ion-icon>
-                                        </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                <ion-icon name="alert"></ion-icon>
-                                            </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                <ion-icon name="alert"></ion-icon>
-                                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="publicacao">
-                <div (click)="opcoes()" class="pessoa">
-                    <ion-icon name="person"></ion-icon>
-                    <p>Lucas Castro</p>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
-                </p>
-                <div class="buttons">
-                    <button (click)="comentario()" class="comentario">
-                                    <ion-icon name="chatboxes"></ion-icon>
-                                </button>
-                    <button (click)="denuncia('pub')" class="denuncia">
-                                    <ion-icon name="alert"></ion-icon>
-                                </button>
-                </div>
-                <div id="comentarios" hidden>
-                    <div id="comentar">
-                        <form name="formComentario" [formGroup]="formComentario">
-                            <ion-icon id="usuario" name="person"></ion-icon>
-                            <textarea formControlName="sComentario" #inputComentario id="inputComentario" rows="1" (keyup)="resize()" name="sComentario" placeholder="Faça um comentário"></textarea>
-                            <ion-icon (click)="onSubmit()" name="checkmark-circle-outline"></ion-icon>
-                        </form>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                <ion-icon name="alert"></ion-icon>
-                                            </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                    <ion-icon name="alert"></ion-icon>
-                                                </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                    <ion-icon name="alert"></ion-icon>
-                                                </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="publicacao">
-                <div (click)="opcoes()" class="pessoa">
-                    <ion-icon name="person"></ion-icon>
-                    <p>Lucas Castro</p>
-                </div>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis, nam laudantium quos ea modi vitae voluptate a doloribus numquam consequuntur repellat. Nemo fugit rem adipisci laboriosam?
-                </p>
-                <div class="buttons">
-                    <button (click)="comentario()" class="comentario">
-                                        <ion-icon name="chatboxes"></ion-icon>
-                                    </button>
-                    <button (click)="denuncia('pub')" class="denuncia">
-                                        <ion-icon name="alert"></ion-icon>
-                                    </button>
-                </div>
-                <div id="comentarios" hidden>
-                    <div id="comentar">
-                        <form name="formComentario" [formGroup]="formComentario">
-                            <ion-icon id="usuario" name="person"></ion-icon>
-                            <textarea formControlName="sComentario" #inputComentario id="inputComentario" rows="1" (keyup)="resize()" name="sComentario" placeholder="Faça um comentário"></textarea>
-                            <ion-icon (click)="onSubmit()" name="checkmark-circle-outline"></ion-icon>
-                        </form>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                    <ion-icon name="alert"></ion-icon>
-                                                </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                        <ion-icon name="alert"></ion-icon>
-                                                    </button>
-                        </div>
-                    </div>
-                    <div class="publicacao">
-                        <div (click)="opcoes()" class="pessoa">
-                            <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
-                        </div>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum aut tempore labore, perspiciatis
-                        </p>
-                        <div class="buttons">
-                            <button (click)="denuncia()" class="denuncia">
-                                                        <ion-icon name="alert"></ion-icon>
-                                                    </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
         </div>
     </div>
 

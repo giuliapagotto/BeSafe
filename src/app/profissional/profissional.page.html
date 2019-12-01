@@ -6,10 +6,10 @@
         <ion-slide>
             <form name="formCrp" [formGroup]="formCrp">
                 <ion-item>
-                    <ion-input placeholder="RG" type="text" name="rg" formControlName="sRg"></ion-input>
+                    <ion-input [brmasker]="{mask:'00.000.000-0', len:12}" placeholder="RG" type="text" name="rg" formControlName="sRg"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input placeholder="CRP" type="text" name="crp" formControlName="sCrp"></ion-input>
+                    <ion-input [brmasker]="{mask:'00/0000', len:7}" placeholder="CRP" type="text" name="crp" formControlName="sCrp"></ion-input>
                 </ion-item>
                 <button (click)="avancar()">Avançar</button>
             </form>
@@ -29,13 +29,13 @@
                     <ion-input placeholder="Nome" type="text" name="nome" formControlName="sNome"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
+                    <ion-input [brmasker]="{phone: true}" placeholder="Celular" type="text" name="celular" formControlName="sCelular"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
+                    <ion-input [brmasker]="{mask:'000.000.000-00', len:14}" placeholder="CPF" type="text" name="cpf" formControlName="sCpf"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-datetime displayFormat="DD MM YYYY" formControlName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
+                    <ion-input type="text" [brmasker]="{mask:'00/00/0000', len:10}" name="dataNascimento" placeholder="dd/mm/yyyyy" formControlName="sDataNascimento"></ion-input>
                 </ion-item>
                 <div id="sexo">
                     <ion-list style="width: 100%;">
@@ -62,6 +62,9 @@
             </form>
         </ion-slide>
         <ion-slide>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <p id="error" style="color: red; font-size: 14px;"></p>
+            </div>
             <form name="formUsuario" [formGroup]="formUsuario">
                 <!-- <div id="img">
             <ion-icon name="camera"></ion-icon>

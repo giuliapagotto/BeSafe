@@ -1,4 +1,5 @@
 <ion-content id="configuracao">
+    <ion-input class="id" type="text" hidden></ion-input>
     <div id="conteudo">
         <ion-icon name="person"></ion-icon>
         <form name="formPerfil" [formGroup]="formPerfil">
@@ -12,7 +13,7 @@
                 <ion-input id="cpf" placeholder="CPF" type="text" name="cpf" formControllName="sCpf"></ion-input>
             </ion-item>
             <ion-item>
-                <ion-datetime id="dataNascimento" displayFormat="DD MM YYYY" formControllName="sDataNascimento" placeholder="Data de Nascimento"></ion-datetime>
+                <ion-input id="dataNascimento" placeholder="dd/mm/aaaa" type="text" name="sDataNascimento" formControllName="sDataNascimento"></ion-input>
             </ion-item>
             <div id="sexo">
                 <ion-list>

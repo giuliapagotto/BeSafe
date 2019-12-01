@@ -5,10 +5,10 @@
             <h3>Faça login com seu usuário</h3>
             <form name="formLogin" [formGroup]="formLogin">
                 <ion-item style="margin-top: 45%;">
-                    <ion-input name="usuario" formControlName="sUsuario" type="text" placeholder="Usuário"></ion-input>
+                    <ion-input name="usuario" formControlName="login" type="text" placeholder="Usuário"></ion-input>
                 </ion-item>
                 <ion-item>
-                    <ion-input name="senha" formControlName="sSenha" type="password" placeholder="Senha"></ion-input>
+                    <ion-input name="senha" formControlName="senha" type="password" placeholder="Senha"></ion-input>
                 </ion-item>
                 <button (click)="onSubmit()">Login</button>
             </form>
