@@ -39,7 +39,7 @@ export class HomePage {
   ngOnInit() {
     this._storage.get("dadosUsuario").then((oCadastro) => {
       document.querySelector(".id").setAttribute("value", oCadastro._id);
-      document.querySelector(".nomeUser").setAttribute("value", oCadastro.nome);
+      document.querySelector(".nomeUser").setAttribute("value", oCadastro.login);
     })
     document.querySelector("app-menu").removeAttribute("hidden");
 
@@ -75,12 +75,14 @@ export class HomePage {
     if (tipo == 'publicar') {
       let options = {
         headers: {
-          'nomeUser': [this.formId.controls.sNome.value],
+          'nomeuser': [this.formId.controls.sNome.value],
           'user_id': [this.formId.controls.sId.value],
           "texto": [this.formPublicacao.controls.sTexto.value]
         }
       };
-      document.querySelector("textarea").value = "";
+      document.querySelectorAll("textarea").forEach((element) =>{
+        element.value = "";
+      })
 
       console.log(this.formId.controls.sNome.value);
       
@@ -93,12 +95,14 @@ export class HomePage {
     if (tipo == 'comentar') {
       let options = {
         headers: {
-          'nomeUser': [this.formId.controls.sNome.value],
+          'nomeuser': [this.formId.controls.sNome.value],
           'user_id': [this.formId.controls.sId.value],
           "texto": [this.formComentario.controls.sComentario.value]
         }
       };
-      // document.querySelector("textarea").value = "";
+      document.querySelectorAll("textarea").forEach((element) =>{
+        element.value = "";
+      })
 
       this._http.post("http://localhost:3333/comentarios", null, options).subscribe((response) => {
         console.log(response);

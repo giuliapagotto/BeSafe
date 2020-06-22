@@ -29,7 +29,7 @@
                 <ion-input class="postId" name="postId" hidden>{{post._id}}</ion-input>
                 <div (click)="opcoes()" class="pessoa">
                     <ion-icon name="person"></ion-icon>
-                    <p>Lucas Castro</p>
+                    <p>{{post.nomeuser}}</p>
                 </div>
                 <p>{{post.texto}}</p>
                 <div class="buttons">
@@ -51,7 +51,7 @@
                     <div *ngFor="let comentario of arrObjComent" class="publicacao">
                         <div (click)="opcoes()" class="pessoa">
                             <ion-icon name="person"></ion-icon>
-                            <p>Lucas Castro</p>
+                            <p>{{comentario.nomeuser}}</p>
                         </div>
                         <p>{{comentario.texto}}</p>
                         <div class="buttons">

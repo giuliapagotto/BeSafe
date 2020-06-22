@@ -17,10 +17,12 @@ export class CadastroPage implements OnInit {
   public formCadastro: FormGroup;
   public formUsuario: FormGroup;
   public slidesOptions = {
-    // allowTouchMove: false,
-    // simulateTouch: false
+     allowTouchMove: false,
+     simulateTouch: false
   };
   public slides;
+  public erro;
+
 
   constructor(private _formBuilder: FormBuilder, private _navController: NavController, private _http: HttpClient,
     private sanitizer: DomSanitizer, private storage: Storage, private toastController: ToastController) {
@@ -47,7 +49,7 @@ export class CadastroPage implements OnInit {
 
   async presentToast() {
     const toast = await this.toastController.create({
-      message: 'Publicado com sucesso!',
+      message: 'Usuário cadastrado com sucesso!',
       duration: 2000
     });
     toast.present();
@@ -59,7 +61,7 @@ export class CadastroPage implements OnInit {
       headers: {
         "nome": [this.formCadastro.controls.sNome.value],
         "sexo": [this.formCadastro.controls.sSexo.value],
-        "dataNascimento": [this.formCadastro.controls.sDataNascimento.value],
+        "nascimento": [this.formCadastro.controls.sDataNascimento.value],
         "celular": [this.formCadastro.controls.sCelular.value],
         "cpf": [this.formCadastro.controls.sCpf.value],
         "email": [this.formEmail.controls.sEmail.value],
@@ -71,10 +73,22 @@ export class CadastroPage implements OnInit {
 
     this._http.post('http://localhost:3333/sessions', null, options).subscribe((response) => {
       console.log(response)
-      this.presentToast();
-      setTimeout(() => {
-        this._navController.navigateRoot("/login");
-      }, 1000);
+      this.erro = response;
+      if(this.erro.erro){
+        setTimeout(() => {
+          document.querySelector("#error").innerHTML = `<ion-icon slot="start" name="information-circle-outline" style="color: red;"></ion-icon>`+ this.erro.erro;
+        }, 500);
+      }
+      else{
+        setTimeout(() => {
+          this.presentToast();
+          this._navController.navigateRoot("/login");
+  
+        }, 1000);
+      }
+     
+     
+
     });
 
   }

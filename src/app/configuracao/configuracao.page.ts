@@ -27,8 +27,8 @@ export class ConfiguracaoPage implements OnInit {
       document.querySelector(".id").setAttribute("value", oCadastro._id);
       document.querySelector("#nome").setAttribute("value", oCadastro.nome);
       document.querySelector("#celular").setAttribute("value", oCadastro.celular);
-      // document.querySelector("#cpf").setAttribute("value", oCadastro.sCpf);
-      document.querySelector("#dataNascimento").setAttribute("value", oCadastro.dataNascimento);
+      document.querySelector("#cpf").setAttribute("value", oCadastro.cpf);
+      document.querySelector("#dataNascimento").setAttribute("value", oCadastro.nascimento);
       document.querySelector("#sexoInput").setAttribute("value", oCadastro.sexo);
 
       console.log(oCadastro);

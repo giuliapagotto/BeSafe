@@ -16,10 +16,10 @@ export class ProfissionalPage implements OnInit {
   public formEmail: FormGroup;
   public formCadastro: FormGroup;
   public formUsuario: FormGroup;
-  public slidesOptions: {
+  public slidesOptions = {
     allowTouchMove: false,
     simulateTouch: false
-  }
+ };
   public slides;
   public cadastro = true;
   public erro;
@@ -92,11 +92,16 @@ export class ProfissionalPage implements OnInit {
 
     this._http.post('http://localhost:3333/sessions',null, options).subscribe((response) =>{
       console.log(response)
-      // this.cadastro = false;
       this.erro = response;
-      setTimeout(() => {
-        document.querySelector("#error").innerHTML = `<ion-icon slot="start" name="information-circle-outline" style="color: red;"></ion-icon>`+ this.erro.erro;
-      }, 500);
+      if(this.erro.erro){
+        setTimeout(() => {
+          document.querySelector("#error").innerHTML = `<ion-icon slot="start" name="information-circle-outline" style="color: red;"></ion-icon>`+ this.erro.erro;
+        }, 500);
+      }
+      else{
+       this.cadastro = false;
+      }
+      
     });
 
   }
